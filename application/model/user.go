@@ -1,7 +1,7 @@
 package model
 
 import (
-    "vendertest/lib"
+    "kobe/lib"
     "github.com/gohouse/gorose"
 )
 

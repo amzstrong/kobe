@@ -1,8 +1,8 @@
 package main
 
 import (
-    "vendertest/application/router"
-    "vendertest/lib"
+    "kobe/application/router"
+    "kobe/lib"
 )
 
 func main() {

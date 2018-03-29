@@ -2,8 +2,8 @@ package main
 
 import (
     "fmt"
-    "vendertest/application/model"
-    "vendertest/lib"
+    "kobe/application/model"
+    "kobe/lib"
 )
 
 func main() {

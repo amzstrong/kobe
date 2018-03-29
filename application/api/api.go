@@ -3,7 +3,7 @@ package api
 import (
     "net/http"
     "github.com/gin-gonic/gin"
-    "vendertest/application/model"
+    "kobe/application/model"
 )
 
 func IndexApi(c *gin.Context) {
