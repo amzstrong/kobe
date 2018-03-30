@@ -3,6 +3,7 @@ package lib
 import (
     "os"
     "github.com/gin-gonic/gin"
+    "log"
 )
 
 //框架的一些全局定义
@@ -33,6 +34,7 @@ type Define struct {
     EnvConfigPath       string
 
     ConfigPath          string
+    LogPath             string
 
     MysqlConfigPath     string
     MemcachedConfigPath string
@@ -42,7 +44,10 @@ type Define struct {
     MnsConfigPath       string
 }
 
-var TotalDefine = &Define{DefaultEnv: DedfaultEnv}
+var TotalDefine = &Define{
+    DefaultEnv: DedfaultEnv,
+    LogPath:"/tmp/kobe.log",
+}
 
 func (d *Define)InitConfig(envPath string) {
     d.setEnv(envPath)
@@ -56,6 +61,14 @@ func (d *Define)InitConfig(envPath string) {
     d.MnsConfigPath = d.EnvConfigPath + string(os.PathSeparator) + C_Mns
     d.OssConfigPath = d.EnvConfigPath + string(os.PathSeparator) + C_Oss
     d.OtsConfigPath = d.EnvConfigPath + string(os.PathSeparator) + C_Ots
+
+    logFile, logErr := os.OpenFile(TotalDefine.LogPath, os.O_CREATE | os.O_RDWR | os.O_APPEND, 0666)
+    if logErr != nil {
+        log.Fatal(logErr)
+    }
+    gin.DefaultWriter = logFile
+    gin.DefaultErrorWriter = logFile
+    log.SetOutput(logFile)
 
 }
 
