@@ -33,12 +33,10 @@ func Run(router *gin.Engine, port string) {
 }
 
 func Start() {
-    log.Println("####service start####")
+    log.Println("####service--start####")
     var envp string
-    flag.StringVar(&envp, "envPath", "", "please input --envp=`you config path`")
-    //解析输入的参数
+    flag.StringVar(&envp, "envp", "", "please input --envp=`you config path`")
     flag.Parse()
-
     if envp == "" {
         panic("name is not set :add  --envp=`you config path`  after go run main ")
     }

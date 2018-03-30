@@ -66,6 +66,5 @@ func (d *Define)setEnv(envPath string) {
     } else {
         d.Env = env
     }
-
 }
 
