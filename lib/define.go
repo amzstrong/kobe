@@ -65,6 +65,7 @@ func (d *Define)InitConfig(envPath string) {
     logFile, logErr := os.OpenFile(TotalDefine.LogPath, os.O_CREATE | os.O_RDWR | os.O_APPEND, 0666)
     if logErr != nil {
         log.Fatal(logErr)
+        panic(logErr)
     }
     gin.DefaultWriter = logFile
     gin.DefaultErrorWriter = logFile
