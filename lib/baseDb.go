@@ -35,7 +35,7 @@ func getDbConfig(appPath string) interface{} {
 }
 
 func Dao(database string) (gorose.Connection, error) {
-    configPath := "/Users/alex/go/src/kobe/config/dev/mysql.json"
+    configPath := TotalDefine.MysqlConfigPath;
     config := getDbConfig(configPath)
     return open(config, database)
 }
